@@ -1,0 +1,71 @@
+# main loop frequency [Hz] (should be as fast as F/T sensor publish frequency)
+loop_rate: 650.0
+
+# waiting time after moving to each pose before taking F/T measurements
+wait_time: 4.0
+
+# Name of the moveit group
+moveit_group_name: 'fr3_arm'
+
+# Name of the calib file
+calib_file_name: 'fr3_hand_calib_data.yaml'
+
+# Name of the directory
+calib_file_dir: '~/catkin_ws/src/bota_demo/config'
+
+# Name of file to store measurements
+meas_file_name: 'fr3_hand_calib_meas.txt'
+
+# Name of the directory
+meas_file_dir: '~/catkin_ws/src/bota_demo/config'
+
+# don't execute random poses
+random_poses: false
+
+# number of random poses
+number_random_poses: 0
+
+# the poses to which to move the arm in order to calibrate the F/T sensor
+# format: [x y z Y X Z] (Euler YXZ) in meters, radians 
+# poses_frame_id sets the frame at which the poses are expressed
+poses_frame_id: 'fr3_link0'
+
+pose0: [0.3, 0.0, 0.55, 2.356, -0.7854, 0.0]
+pose1: [0.3, 0.0, 0.55, 2.356, -0.7854, 1.571]
+pose2: [0.3, 0.0, 0.55, 2.356, -0.7854, 3.142]
+pose3: [0.3, 0.0, 0.55, 2.356, -0.7854, 4.712]
+pose4: [0.3, 0.0, 0.55, 2.356, 0.0, 0.0]
+pose5: [0.3, 0.0, 0.55, 2.356, 0.0, 1.571]
+pose6: [0.3, 0.0, 0.55, 2.356, 0.0, 3.142]
+pose7: [0.3, 0.0, 0.55, 2.356, 0.0, 4.712]
+pose8: [0.3, 0.0, 0.55, 2.356, 0.7854, 0.0]
+pose9: [0.3, 0.0, 0.55, 2.356, 0.7854, 1.571]
+pose10: [0.3, 0.0, 0.55, 2.356, 0.7854, 3.142]
+pose11: [0.3, 0.0, 0.55, 2.356, 0.7854, 4.712]
+pose12: [0.3, 0.0, 0.55, 3.142, -0.7854, 0.0]
+pose13: [0.3, 0.0, 0.55, 3.142, -0.7854, 1.571]
+pose14: [0.3, 0.0, 0.55, 3.142, -0.7854, 3.142]
+pose15: [0.3, 0.0, 0.55, 3.142, -0.7854, 4.712]
+pose16: [0.3, 0.0, 0.55, 3.142, 0.0, 0.0]
+pose17: [0.3, 0.0, 0.55, 3.142, 0.0, 1.571]
+pose18: [0.3, 0.0, 0.55, 3.142, 0.0, 3.142]
+pose19: [0.3, 0.0, 0.55, 3.142, 0.0, 4.712]
+pose20: [0.3, 0.0, 0.55, 3.142, 0.7854, 0.0]
+pose21: [0.3, 0.0, 0.55, 3.142, 0.7854, 1.571]
+pose22: [0.3, 0.0, 0.55, 3.142, 0.7854, 3.142]
+pose23: [0.3, 0.0, 0.55, 3.142, 0.7854, 4.712]
+pose24: [0.3, 0.0, 0.55, 3.927, -0.7854, 0.0]
+pose25: [0.3, 0.0, 0.55, 3.927, -0.7854, 1.571]
+pose26: [0.3, 0.0, 0.55, 3.927, -0.7854, 3.142]
+pose27: [0.3, 0.0, 0.55, 3.927, -0.7854, 4.712]
+pose28: [0.3, 0.0, 0.55, 3.927, 0.0, 0.0] # Planning failed
+pose29: [0.3, 0.0, 0.55, 3.927, 0.0, 1.571]
+pose30: [0.3, 0.0, 0.55, 3.927, 0.0, 3.142]
+pose31: [0.3, 0.0, 0.55, 3.927, 0.0, 4.712]
+pose32: [0.3, 0.0, 0.55, 3.927, 0.7854, 0.0]
+pose33: [0.3, 0.0, 0.55, 3.927, 0.7854, 1.571]
+pose34: [0.3, 0.0, 0.55, 3.927, 0.7854, 3.142]
+pose35: [0.3, 0.0, 0.55, 3.927, 0.7854, 4.712]
+
+
+
