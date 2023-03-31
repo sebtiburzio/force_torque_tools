@@ -217,6 +217,8 @@ public:
 	{
 		m_group = new moveit::planning_interface::MoveGroupInterface(m_moveit_group_name);
 		m_group->setPlannerId("RRTConnectkConfigDefault");
+		m_group->setMaxAccelerationScalingFactor(0.1);
+		m_group->setMaxVelocityScalingFactor(0.1);
 	}
 
 
@@ -246,7 +248,7 @@ public:
 			pose_.position.z = pose(2);
 
 			tf::Quaternion q;
-			q.setRPY((double)pose(3), (double)pose(4), (double)pose(5));
+			q.setEuler((double)pose(3), (double)pose(4), (double)pose(5));
 
 			tf::quaternionTFToMsg(q, pose_.orientation);
 
@@ -256,6 +258,11 @@ public:
 			pose_stamped.header.stamp = ros::Time::now();
 
 			m_group->setPoseTarget(pose_stamped);
+			ROS_INFO("Planning to pose %d ", m_pose_counter);
+			m_group->plan(pose_plan);
+			ROS_INFO("Finished planning to pose %d ", m_pose_counter);
+			ROS_INFO("Enter to execute pose %d ", m_pose_counter);
+			getchar();
 
 		}
 		else // or execute random poses
@@ -282,7 +289,7 @@ public:
 	}
 
 	// gets the next pose from the parameter server
-	// pose in [x y z r p y] format ([m], [rad])
+	// pose in [x y z Y X Z] format ([m], [rad])
 	bool getPose(const std::string &pose_param_name, Eigen::Matrix<double, 6, 1> &pose)
 	{
 		XmlRpc::XmlRpcValue PoseXmlRpc;
@@ -503,6 +510,7 @@ public:
 private:
 
 	moveit::planning_interface::MoveGroupInterface *m_group;
+	moveit::planning_interface::MoveGroupInterface::Plan pose_plan;
 
 	unsigned int m_pose_counter;
 	unsigned int m_ft_counter;
